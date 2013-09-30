@@ -1,0 +1,33 @@
+{
+  "name": "newtabontheblock",
+  "version": "0.0.0",
+  "homepage": "https://github.com/solutionio/newtabontheblock",
+  "authors": [
+    "Flotob",
+    "Yolo"
+  ],
+  "description": "new tab... on the block!",
+  "main": "main.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone-amd": "~1.0.0",
+    "backbone.babysitter": "~0.0.6",
+    "backbone.eventbinder": "~1.0.2",
+    "backbone.wreqr": "~0.2.0",
+    "bootstrap": "~3.0.0",
+    "less": "~1.4.2",
+    "marionette": "~1.1.0",
+    "requirejs-hogan-plugin": "~0.3.1",
+    "requirejs-plugins": "~1.0.2",
+    "requirejs": "~2.1.8",
+    "underscore-amd": "~1.5.2"
+  }
+}
