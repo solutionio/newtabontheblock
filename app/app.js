@@ -4,7 +4,7 @@ define(function (require) {
 
 	var app = new Marionette.Application;
 
-	app.name = "nevv tab on the block";
+	app.name = "new tab on the block";
 
 	app.addInitializer(function (options) {
 		var Controller = app.module('controller', require('controller')).controller,
@@ -13,7 +13,7 @@ define(function (require) {
 
 
 	app.addRegions({
-		nav: '.nav',
+		nav: 'nav',
 		index: '.body'
 	});
 

@@ -1,5 +1,5 @@
 define(function (require) {
-	return function (module, parent, Backbone, Marionette, $, _) {
+	return function (module, app, Backbone, Marionette, $, _) {
 		var collection = Backbone.Collection.extend({
 				model: Backbone.Model.extend({
 					parse: function (data) {

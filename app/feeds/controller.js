@@ -1,29 +1,37 @@
 define(function (require) {
-	return function (module, parent, Backbone, Marionette, $, _)	 {
+	return function (module, app, Backbone, Marionette, $, _)	 {
 		var controller = Marionette.Controller.extend({
 				initialize: function (options) {
-					var FeedView = module.sub('list', require('./feed/views/list')).view;
 
-					var view = Marionette.CollectionView.extend({
-						className: 'row',
-						itemView: FeedView,
-						collection: new Backbone.Collection([
-							{
-								id: '106',
-								name: 'General'
-							},
-							{
-								id: '110',
-								name: 'Penis',
-							},
-							{
-								id: '198',
-								name: 'Penis',
+					var Collection = Backbone.Collection.extend({
+							initialize: function () {
+								app.reqres.setHandler( 'addFolder',
+									function ( id ) {
+										if ( !id )
+											return false;
+
+										if ( !_( id ).isString() )
+											return false;
+
+										collection.add({
+											id: id
+										});
+
+										return true;
+									}
+								);							
 							}
-						])
-					});
+						}),
+						collection = new Collection;
 
-					this.el = new view;
+					var ItemView = module.sub('list', require('./feed/views/list')).view,
+						CollectionView = Marionette.CollectionView.extend({
+							className: 	'row',
+							itemView: 	ItemView,
+							collection: collection
+						});
+
+					this.el = new CollectionView;
 				}
 			});
 
