@@ -14,9 +14,9 @@ local bookmarks API.
 **your tab is now the new one on the block**
 
 ### Contribute
+0. clone this repo locally
 1. get [node](http://nodejs.org) and [npm](http://npmjs.org)
-2. run `npm install`
-3. run `bower install`
+2. run `npm install && bower install` in the root folder of your local copy of this repository
 
 ### What is needed
 * whichever bookmarking service you'd like to see
