@@ -1,4 +1,4 @@
-newtabontheblock
+new tab on the block
 ================
 
 ### I've heard there is a new tab on the block! What's all that fuzz about?
@@ -6,7 +6,7 @@ newtabontheblock
 	likes to talk to as many APIs as possible. Currently, it can only talk to chrome's
 	local bookmarks API.
 
-### Install as Chrome Extension in 3 stepts
+### Install as Chrome Extension in 3 steps
 	1. [click this link](chrome://extensions/)
 	2. check the "Developer Mode" Box in the top right corner
 	3. click "Load unpackaged extension" and choose this repo's root folder
