@@ -1,4 +1,4 @@
-define(['backbone', 'backbone.marionette.orig', 'underscore', 'lib/module_abs_path', 'lib/modules'], function (Backbone, Marionette, _, moduleAbsPath, modules) {
+define(['backbone', 'backbone.marionette.orig', 'underscore', 'lib/module_abs_path'], function (Backbone, Marionette, _, moduleAbsPath) {
 		
 	/**
 	Create a module.sub() method
@@ -29,25 +29,6 @@ define(['backbone', 'backbone.marionette.orig', 'underscore', 'lib/module_abs_pa
 			_(module).extend({
 				reqres: new Backbone.Wreqr.RequestResponse()
 			});
-
-
-			/**
-			Event Mapping to special controller properties, namely
-				layout(s), view(s), controller(s), router(s), collection(s), [models via collection]
-
-			currently not implemented
-			*/
-
-
-			/**
-			Register the module with the 'modules'-module, which is a register for instantiated modules,
-			which always returns a promise object, that is either already resolved if the module is already
-			instantiated or is to be resolved when the requested module will eventually be instantiated
-
-				Attention: since the promise will immediately be resolved on calling set, all event plumming
-				has to be done before (since events may be fired immediately)
-			*/
-			modules.set(module);
 
 			return module;
 		}
