@@ -7,7 +7,7 @@ likes to talk to as many APIs as possible. Currently, it can only talk to chrome
 local bookmarks API.
 
 ### Install as Chrome Extension in 3 steps
-1. [click this link](chrome://extensions/)
+1. type `chrome://extensions` in chrome's address bar
 2. check the "Developer Mode" Box in the top right corner
 3. click "Load unpackaged extension" and choose this repo's root folder
 
