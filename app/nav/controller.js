@@ -55,8 +55,12 @@ define(function (require) {
 								navbar.nav.show( new Nav({
 									collection: new Backbone.Collection([ 
 										{
-											id: 'addFeed',
 											title: 'Add Folder',
+											/**
+											Callback
+												@event: the event object
+												@this: 	context of view that was clicked, containing e.g. the associated model
+											*/
 											onClick: function (event) {
 												app.reqres.hasHandler('addFolder')
 												&& 	app.request(

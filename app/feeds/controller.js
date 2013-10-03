@@ -1,9 +1,11 @@
 define(function (require) {
-	return function (module, app, Backbone, Marionette, $, _)	 {
+	return function (module, app, Backbone, Marionette, $, _) {
 		var controller = Marionette.Controller.extend({
 				initialize: function (options) {
 
 					var Collection = Backbone.Collection.extend({
+							localStorage: new Backbone.LocalStorage('feeds'),
+
 							initialize: function () {
 								app.reqres.setHandler( 'addFolder',
 									function ( id ) {
