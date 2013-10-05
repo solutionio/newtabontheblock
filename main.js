@@ -3,6 +3,7 @@ requirejs.config({
     paths: 		{
     	'backbone'					: '../bower_components/backbone-amd/backbone',
         'backbone.localStorage'     : '../bower_components/backbone.localStorage/backbone.localStorage',
+        'backbone.ChromeStorage'    : '../bower_components/backbone.ChromeStorage/backbone.chromestorage',
     	'backbone.marionette'		: 'lib/backbone.marionette.extended',
     	'backbone.marionette.orig'	: '../bower_components/marionette/lib/core/amd/backbone.marionette',
         'backbone.babysitter'       : '../bower_components/backbone.babysitter/lib/amd/backbone.babysitter',

@@ -1,4 +1,4 @@
-define(['backbone', 'backbone.localStorage', 'backbone.marionette.orig', 'underscore', 'lib/module_abs_path'], function (Backbone, LocalStorage, Marionette, _, moduleAbsPath) {
+define(['backbone', 'backbone.marionette.orig', 'underscore', 'lib/module_abs_path'], function (Backbone, Marionette, _, moduleAbsPath) {
 		
 	/**
 	Create a module.sub() method
