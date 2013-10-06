@@ -66,9 +66,7 @@ define(function (require) {
 													browser = new Browser;
 
 												var Popup = require('lib/popup'),
-													popup = new Popup;
-												
-												popup.create({
+													popup = new Popup({
 													size: 'cinema',
 													disableParent: true,
 													closeOnEsc: true
