@@ -6,7 +6,7 @@ define(function (require) {
 						/**
 						Make ability to add new folders globally available via app object
 						*/
-						app.reqres.setHandler( 'addFolder',
+						app.reqres.setHandler( 'folders:add',
 							_(function ( id ) {
 								if ( !id )
 									return false;
@@ -22,11 +22,13 @@ define(function (require) {
 							}).bind(this)
 						);
 
-						app.reqres.setHandler( 'resetFolders', _( function () {
-							this.reset();
+						app.reqres.setHandler( 'folders:reset',
+							_( function ( models, options ) {
+								this.reset( models, options );
 
-							return true;
-						} ).bind(this) );
+								return true;
+							} ).bind(this)
+						);
 					}
 				});
 

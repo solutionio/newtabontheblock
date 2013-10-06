@@ -23,7 +23,26 @@ define(function (require) {
 								*/
 								require('jquery.ui.sortable');
 
-								$(this.el).sortable();								
+								$(this.el).sortable({
+									update: _( function (event, ui) {
+										var models = [];
+
+										_( this.$el.children() ).each(function (node) {
+											var view = this.children.filter( function (view) {
+												return node.isEqualNode(view.el);
+											}).shift();
+
+											models[ $(node).index() ] = {
+												id: view.model.id
+											};
+
+										}, this );
+
+										app.reqres.hasHandler('folders:reset')
+										&& 	app.request('folders:reset', models )
+										|| 	alert('Fehler');										
+									}).bind(this)
+								});
 							}
 						});
 

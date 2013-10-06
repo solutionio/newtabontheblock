@@ -17,9 +17,9 @@ define(function (require) {
 
 					    events: {
 					    	'click >a': function (event) {
-								app.reqres.hasHandler('addFolder')
+								app.reqres.hasHandler('folders:add')
 								&& 	app.request(
-										'addFolder',
+										'folders:add',
 										this.model.id.toString()
 									)
 								|| 	alert('Fehler');

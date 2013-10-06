@@ -78,8 +78,8 @@ define(function (require) {
 										{
 											title: 'Remove all folders',
 											onClick: function (event) {
-												app.reqres.hasHandler('resetFolders')
-												&& 	app.request('resetFolders')
+												app.reqres.hasHandler('folders:reset')
+												&& 	app.request('folders:reset')
 												|| 	alert('Fehler');												
 											}
 										}
