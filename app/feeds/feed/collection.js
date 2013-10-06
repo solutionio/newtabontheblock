@@ -5,7 +5,7 @@ define(function (require) {
 					parse: function (data) {
 						var loc = $('<a />').attr({ href: data.url })[0];
 						
-						data.favicon = loc.protocol + '//' + loc.hostname + '/favicon.ico';
+						data.favicon = 'chrome://favicon/' + loc.protocol + '//' + loc.hostname;
 
 						return data;
 					}

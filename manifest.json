@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "New Tab On The Block",
   "version": "0.0.0",
-  "permissions": ["bookmarks", "storage"],
+  "permissions": ["bookmarks", "storage", "chrome://favicon/"],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "chrome_url_overrides" : {
     "newtab": "index.html"
