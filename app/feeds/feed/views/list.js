@@ -14,6 +14,11 @@ define(function (require) {
 				},				
 
 				initialize: function () {
+					/**
+					Create new collection from FeedCollectionFabric and pass along
+					the tree node id of the chrome bookmark in order to retrieve
+					its children onInitialize()
+					*/
 					this.collection = new FeedCollection([], this.model.get('id'));
 				}
 			});

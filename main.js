@@ -13,6 +13,13 @@ requirejs.config({
         'underscore'                : '../bower_components/underscore-amd/underscore',
     	'jquery'                    : '../bower_components/jquery/jquery',
 
+        'jquery.ui.core'            : '../bower_components/jquery.ui/ui/jquery.ui.core',
+        'jquery.ui.widget'           : '../bower_components/jquery.ui/ui/jquery.ui.widget',
+        'jquery.ui.mouse'           : '../bower_components/jquery.ui/ui/jquery.ui.mouse',
+        'jquery.ui.position'        : '../bower_components/jquery.ui/ui/jquery.ui.position',
+
+        'jquery.ui.sortable'        : '../bower_components/jquery.ui/ui/jquery.ui.sortable',
+
         'font'                      : '../bower_components/requirejs-plugins/src/font',
 
         'hogan'                     : '../bower_components/requirejs-hogan-plugin/hogan',
@@ -21,6 +28,16 @@ requirejs.config({
         'propertyParser'            : '../bower_components/requirejs-plugins/src/propertyParser',
 
         'text'                      : '../bower_components/requirejs-hogan-plugin/text',
+    },
+
+    shim: {
+        'jquery.ui.sortable': {
+            /**
+            This array of dependencies is the core dependency of any other jquery.ui.module
+            */
+            deps: ['jquery', 'jquery.ui.core', 'jquery.ui.widget', 'jquery.ui.mouse', 'jquery.ui.position'],
+            exports: '$'
+        }
     }
 });
 

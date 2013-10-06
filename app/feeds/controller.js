@@ -15,7 +15,16 @@ define(function (require) {
 						CollectionView = Marionette.CollectionView.extend({
 							className: 	'row',
 							itemView: 	ItemView,
-							collection: feedsCollection
+							collection: feedsCollection,
+
+							initialize: function () {
+								/**
+								Make list sortable
+								*/
+								require('jquery.ui.sortable');
+
+								$(this.el).sortable();								
+							}
 						});
 
 					this.el = new CollectionView;
