@@ -3,6 +3,10 @@ define(function (require) {
 		var collection = Backbone.Collection.extend({
 				model: Backbone.Model.extend({
 					parse: function (data) {
+						var loc = $('<a />').attr({ href: data.url })[0];
+						
+						data.favicon = loc.protocol + '//' + loc.hostname + '/favicon.ico';
+
 						return data;
 					}
 				}),
