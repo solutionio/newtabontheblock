@@ -76,6 +76,14 @@ define(function (require) {
 
 												popup.$el.html( browser.el.render().el );
 											}
+										},
+										{
+											title: 'Remove all folders',
+											onClick: function (event) {
+												app.reqres.hasHandler('resetFolders')
+												&& 	app.request('resetFolders')
+												|| 	alert('Fehler');												
+											}
 										}
 									])
 								}) );

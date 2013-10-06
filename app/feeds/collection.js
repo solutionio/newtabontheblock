@@ -20,7 +20,13 @@ define(function (require) {
 
 								return true;
 							}).bind(this)
-						);						
+						);
+
+						app.reqres.setHandler( 'resetFolders', _( function () {
+							this.reset();
+
+							return true;
+						} ).bind(this) );
 					}
 				});
 
