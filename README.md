@@ -21,4 +21,3 @@ local bookmarks API.
 ### What is needed
 * whichever bookmarking service you'd like to see
 * a lot of ux and ui work needs to be done. basically it should look and work like tweetdeck
-* a persistent data layer is needed

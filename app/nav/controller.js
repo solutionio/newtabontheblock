@@ -55,15 +55,34 @@ define(function (require) {
 								navbar.nav.show( new Nav({
 									collection: new Backbone.Collection([ 
 										{
-											id: 'addFeed',
 											title: 'Add Folder',
+											/**
+											Callback
+												@event: the event object
+												@this: 	context of view that was clicked, containing e.g. the associated model
+											*/
 											onClick: function (event) {
-												app.reqres.hasHandler('addFolder')
-												&& 	app.request(
-														'addFolder',
-														prompt('What is the id of the folder you want to add?')
-													)
-												|| 	alert('Fehler');
+												var Browser = module.sub('browser', require('browser/controller')).controller,
+													browser = new Browser;
+
+												var Popup = require('lib/popup'),
+													popup = new Popup;
+												
+												popup.create({
+													size: 'cinema',
+													disableParent: true,
+													closeOnEsc: true
+												});
+
+												popup.$el.html( browser.el.render().el );
+											}
+										},
+										{
+											title: 'Remove all folders',
+											onClick: function (event) {
+												app.reqres.hasHandler('resetFolders')
+												&& 	app.request('resetFolders')
+												|| 	alert('Fehler');												
 											}
 										}
 									])
