@@ -62,12 +62,19 @@ define(function (require) {
 												@this: 	context of view that was clicked, containing e.g. the associated model
 											*/
 											onClick: function (event) {
-												app.reqres.hasHandler('addFolder')
-												&& 	app.request(
-														'addFolder',
-														prompt('What is the id of the folder you want to add?')
-													)
-												|| 	alert('Fehler');
+												var Browser = module.sub('browser', require('browser/controller')).controller,
+													browser = new Browser;
+
+												var Popup = require('lib/popup'),
+													popup = new Popup;
+												
+												popup.create({
+													size: 'cinema',
+													disableParent: true,
+													closeOnEsc: true
+												});
+
+												popup.$el.html( browser.el.render().el );
 											}
 										}
 									])
