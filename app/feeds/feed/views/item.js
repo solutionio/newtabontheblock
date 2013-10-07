@@ -15,6 +15,47 @@ define(function (require) {
 					'change:url': function (model) {
 						this.$('[data-key="url"]').attr({ href: model.get('url') });
 					}
+				},
+
+				initialize: function () {
+					/**
+					Add an event listener that is dependend on the result from an async chrome.* api call
+					*/
+					chrome.tabs.getCurrent( _( function (tab) {
+						var tabsCreated = 0;
+
+						this.$('a').on('click', _( function () {
+							chrome.tabs.create({
+								url: 	this.model.get('url'),
+								active: false, 	// open in background
+								index: tab.index + (tabsCreated++) +1
+							});		
+							
+							return false;					
+						}).bind(this) );
+
+						// this.events = {
+						// 	'click': function () {
+						// 		chrome.tabs.create({
+						// 			url: 	'http://www.google.com',
+						// 			active: false, 	// open in background
+						// 		});
+
+						// 		return false;								
+						// 	}
+						// };
+
+						// _( this.events ).extend({
+						// 	'click >a': function () {
+						// 		chrome.tabs.create({
+						// 			url: 	'http://www.google.com',
+						// 			active: false, 	// open in background
+						// 		});
+
+						// 		return false;
+						// 	}
+						// });
+					}).bind(this) );
 				}
 			});
 

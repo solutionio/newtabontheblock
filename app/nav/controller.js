@@ -88,8 +88,6 @@ define(function (require) {
 											onClick: function (event) {
 												chrome.tabs.create({
 													url: 'chrome://bookmarks'
-												}, function () {
-													console.log('tab opened', arguments);
 												});
 											}
 										}
