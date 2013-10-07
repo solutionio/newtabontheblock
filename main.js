@@ -14,7 +14,7 @@ requirejs.config({
     	'jquery'                    : '../bower_components/jquery/jquery',
 
         'jquery.ui.core'            : '../bower_components/jquery.ui/ui/jquery.ui.core',
-        'jquery.ui.widget'           : '../bower_components/jquery.ui/ui/jquery.ui.widget',
+        'jquery.ui.widget'          : '../bower_components/jquery.ui/ui/jquery.ui.widget',
         'jquery.ui.mouse'           : '../bower_components/jquery.ui/ui/jquery.ui.mouse',
         'jquery.ui.position'        : '../bower_components/jquery.ui/ui/jquery.ui.position',
 
@@ -37,7 +37,7 @@ requirejs.config({
             */
             deps: ['jquery', 'jquery.ui.core', 'jquery.ui.widget', 'jquery.ui.mouse', 'jquery.ui.position'],
             exports: '$'
-        }
+        }            
     }
 });
 

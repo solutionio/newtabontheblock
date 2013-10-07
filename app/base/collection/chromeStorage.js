@@ -25,12 +25,6 @@ define(function (require) {
 					/**
 					Reset Collection with data stored in ChromeStorage
 					*/
-					//chrome.storage.sync.clear();
-
-					// chrome.storage.onChanged.addListener(function () {
-					// 	console.log('cS:changed', arguments);
-					// })
-
 					chrome.storage.sync.get(this.name, _(function (data) {
 
 						if (data && _(data).has(this.name) ) {
@@ -40,7 +34,7 @@ define(function (require) {
 					}).bind(this));
 
 					/**
-					Sync changes with ChromeStorage
+					Sync changes to collection with ChromeStorage
 					*/
 					this.on('all', function () {
 						var data = {};
@@ -50,7 +44,15 @@ define(function (require) {
 						});
 
 						chrome.storage.sync.set(data);
-					})
+					});
+
+					/**
+					Sync changes to ChromeStorage with Collection
+					*/
+					chrome.storage.onChanged.addListener(function () {
+						console.log('cS:changed', arguments);
+					});
+
 				},
 			});
 

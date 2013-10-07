@@ -1,12 +1,10 @@
 define(function (require) {
 	return function (module, parent, Backbone, Marionette, $, _) {
-		var FeedCollection = module.sub('collection', require('../collection')).collection,
-			ItemView = module.sub('view', require('./item')).view;
-
+		
 		var view = Marionette.CompositeView.extend({
 				className: 'col-md-3',
 
-				itemView: ItemView,
+				itemView: module.sub('view', require('./item')).view,
 				itemViewContainer: 'ul',
 
 				template: function () {
@@ -14,12 +12,18 @@ define(function (require) {
 				},				
 
 				initialize: function () {
-					/**
-					Create new collection from FeedCollectionFabric and pass along
-					the tree node id of the chrome bookmark in order to retrieve
-					its children onInitialize()
-					*/
-					this.collection = new FeedCollection([], this.model.get('id'));
+					var FeedCollection = module.sub('collection', require('../collection')).collection
+							.extend({
+								/**
+								Attach nodeId to collection, to
+									- populate collection onIninitialize()
+									- make the collection identifiable in the context of Events
+									  stemming from chrome.bookmarks
+								*/								
+								nodeId: this.model.get('id')
+							})
+
+					this.collection = new FeedCollection;
 				}
 			});
 

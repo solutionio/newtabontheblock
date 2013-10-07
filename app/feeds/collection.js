@@ -4,7 +4,7 @@ define(function (require) {
 				.extend({
 					initialize: function () {
 						/**
-						Make ability to add new folders globally available via app object
+						Make CRUD operations on collection globally available via app object
 						*/
 						app.reqres.setHandler( 'folders:add',
 							_(function ( id ) {
@@ -29,6 +29,12 @@ define(function (require) {
 								return true;
 							} ).bind(this)
 						);
+
+						// app.reqres.setHandler( 'folders:refresh',
+						// 	_( function (node) {
+								
+						// 	} ).bind(this)
+						// );
 					}
 				});
 

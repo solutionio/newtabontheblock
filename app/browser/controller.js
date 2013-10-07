@@ -15,7 +15,13 @@ define(function (require) {
 					    
 					    tagName: "li",
 
+					    /**
+						Events
+					    */
 					    events: {
+					    	/**
+							onClick of Folder, add it to feedsCollection
+					    	*/
 					    	'click >a': function (event) {
 								app.reqres.hasHandler('folders:add')
 								&& 	app.request(
@@ -28,9 +34,15 @@ define(function (require) {
 					    
 					    initialize: function(){
 					    	var Collection = Backbone.Collection.extend({
-					    		parse: function (data) {
-					    			return _( data ).filter( function (node) {
-					    				return _( node ).has('dateGroupModified');
+					    		/**
+								Parse whole collection
+					    		*/
+					    		parse: function ( models ) {
+					    			/**
+									Reject non-folders
+					    			*/
+					    			return _( models ).filter( function (model) {
+					    				return _( model ).has('dateGroupModified');
 					    			});
 					    		}
 					    	});
