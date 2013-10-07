@@ -76,11 +76,21 @@ define(function (require) {
 											}
 										},
 										{
-											title: 'Remove all folders',
+											title: 'Remove all Folders',
 											onClick: function (event) {
 												app.reqres.hasHandler('folders:reset')
 												&& 	app.request('folders:reset')
 												|| 	alert('Fehler');												
+											}
+										},
+										{
+											title: 'Bookmark Manager',
+											onClick: function (event) {
+												chrome.tabs.create({
+													url: 'chrome://bookmarks'
+												}, function () {
+													console.log('tab opened', arguments);
+												});
 											}
 										}
 									])
