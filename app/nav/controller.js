@@ -41,12 +41,14 @@ define(function (require) {
 										itemView: Marionette.ItemView.extend({
 											tagName: 'li',
 											template: function (data) {
-												return $('<a href="#" />').html( data.title );
+												return $('<a href="#">').html( data.title );
 											},
 
 											events: {
 												'click a': function () {
 													this.model.get('onClick').apply(this, arguments);
+
+													return false;
 												}
 											}
 										})
