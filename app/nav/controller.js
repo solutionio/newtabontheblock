@@ -92,6 +92,14 @@ define(function (require) {
 													url: 'chrome://bookmarks'
 												});
 											}
+										},
+										{
+											title: 'Freeze!',
+											onClick: function () {
+												chrome.tabs.captureVisibleTab(null, {format: 'png'}, function (image) {
+												   $('body').html('<img src="'+image+'">');
+												});												
+											}
 										}
 									])
 								}) );
