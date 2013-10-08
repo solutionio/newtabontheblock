@@ -69,10 +69,10 @@ define(function (require) {
 
 												var Popup = require('lib/popup'),
 													popup = new Popup({
-													size: 'cinema',
-													disableParent: true,
-													closeOnEsc: true
-												});
+														size: 'cinema',
+														disableParent: true,
+														closeOnEsc: true
+													});
 
 												popup.$el.html( browser.el.render().el );
 											}
@@ -96,9 +96,22 @@ define(function (require) {
 										{
 											title: 'Freeze!',
 											onClick: function () {
-												chrome.tabs.captureVisibleTab(null, {format: 'png'}, function (image) {
-												   $('body').html('<img src="'+image+'">');
-												});												
+												function cheese (i) {
+													chrome.tabs.captureVisibleTab(null, {format: 'png'}, function (image) {
+														var Popup = require('lib/popup'),
+															popup = new Popup({
+																size: 'cinema',
+																disableParent: true,
+																closeOnEsc: true
+															});
+
+														popup.$el.html( $('<img src="'+image+'" style="width: 1140px">') );
+
+														window.setTimeout(cheese, 500, i);														
+													});
+												}
+
+												cheese(0);
 											}
 										}
 									])
